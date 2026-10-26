@@ -1,16 +1,53 @@
-# React + Vite
+# Agile Project & Sprint Analytics Suite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Sprint Analytics Dashboard
 
-Currently, two official plugins are available:
+This module helps track sprint progress through story points, a burndown chart, and sprint velocity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Total Story Points
+- Completed Story Points
+- Remaining Story Points
+- Sprint Velocity Calculation
+- Sprint Burndown Chart
+- Task Status Updates
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the Oxlint configuration
+- React
+- Vite
+- Recharts
+- JavaScript
+- CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## How to Run
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Create a production build:
+
+```bash
+npm.cmd run build
+```
+
+## Calculations
+
+- **Total Story Points:** Sum of story points for all tasks.
+- **Completed Points:** Sum of points for tasks marked Done.
+- **Remaining Points:** Total Story Points minus Completed Points.
+- **Sprint Velocity:** Completed story points during the sprint.
+
+## Project Scope
+
+This module focuses on Sprint Analytics, including the Burndown Chart and Velocity Calculation.
