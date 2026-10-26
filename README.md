@@ -50,4 +50,4 @@ npm.cmd run build
 
 ## Project Scope
 
-This module focuses on Sprint Analytics, including the Burndown Chart and Velocity Calculation.
+This module focuses on Sprint Analytics, including the Burndown Chart and Velocity Calculation
