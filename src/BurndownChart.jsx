@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 const sampleData = [
-  { day: "Day 1", ideal: 20, remaining: 20 },
+  { day: "Day 1", ideal: 20, remaining: 18 },
   { day: "Day 2", ideal: 16, remaining: 17 },
   { day: "Day 3", ideal: 12, remaining: 12 },
   { day: "Day 4", ideal: 8, remaining: 9 },
