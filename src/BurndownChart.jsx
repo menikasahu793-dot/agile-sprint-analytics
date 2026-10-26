@@ -10,40 +10,72 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const sampleData = [
-  { day: "Day 1", ideal: 20, remaining: 18 },
-  { day: "Day 2", ideal: 16, remaining: 17 },
-  { day: "Day 3", ideal: 12, remaining: 12 },
-  { day: "Day 4", ideal: 8, remaining: 9 },
-  { day: "Day 5", ideal: 4, remaining: 5 },
-  { day: "Day 6", ideal: 0, remaining: 0 },
-];
+export default function BurndownChart({ tasks = [] }) {
+  const totalPoints = tasks.reduce((sum, task) => {
+    return sum + (Number(task.storyPoints) || 0);
+  }, 0);
 
-export default function BurndownChart() {
+  const completedPoints = tasks.reduce((sum, task) => {
+    if (task.status === "Done") {
+      return sum + (Number(task.storyPoints) || 0);
+    }
+    return sum;
+  }, 0);
+
+  const remainingPoints = totalPoints - completedPoints;
+  console.log("Tasks received:", tasks);
+console.log("Chart values:", {
+  totalPoints,
+  completedPoints,
+  remainingPoints,
+});
+
+  const chartData = [
+    {
+      status: "Total Points",
+      ideal: totalPoints,
+      actual: totalPoints,
+    },
+    {
+      status: "Completed",
+      ideal: totalPoints,
+      actual: completedPoints,
+    },
+    {
+      status: "Remaining",
+      ideal: 0,
+      actual: remainingPoints,
+    },
+  ];
+
   return (
     <div className="chart-container">
-      <h2>Sprint Burndown Chart</h2>
+      <h2>Sprint Progress Chart</h2>
 
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={sampleData}>
+        <LineChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
+
+          <XAxis dataKey="status" />
+
+          <YAxis domain={[0, 20]} allowDecimals={false} />
+
           <Tooltip />
+
           <Legend />
 
           <Line
             type="monotone"
             dataKey="ideal"
-            name="Ideal Progress"
+            name="Reference Points"
             stroke="#8884d8"
             strokeDasharray="5 5"
           />
 
           <Line
             type="monotone"
-            dataKey="remaining"
-            name="Actual Remaining Points"
+            dataKey="actual"
+            name="Actual Story Points"
             stroke="#2563eb"
             strokeWidth={3}
           />

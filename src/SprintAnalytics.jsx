@@ -17,7 +17,7 @@ export default function SprintAnalytics({ tasks = [] }) {
 
       <VelocityCard summary={summary} />
 
-      <BurndownChart />
+      <BurndownChart tasks={tasks} />
     </main>
   );
 }
