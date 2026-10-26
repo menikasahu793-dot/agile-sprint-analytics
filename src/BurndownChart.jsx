@@ -31,13 +31,13 @@ export default function BurndownChart({ tasks = [] }) {
 
   // Demo history: replace with real daily records when available.
   const dailyRemaining = [
-    totalPoints,
-    18,
-    15,
-    12,
-    9,
-    remainingPoints,
-  ];
+  totalPoints,
+  null,
+  null,
+  null,
+  null,
+  remainingPoints,
+];
 
   const chartData = Array.from({ length: sprintLength }, (_, index) => ({
     day: `Day ${index + 1}`,
@@ -78,7 +78,7 @@ export default function BurndownChart({ tasks = [] }) {
           <Line
             type="monotone"
             dataKey="actual"
-            name="Actual Remaining Points (Demo)"
+            name="Actual Remaining Points"
             stroke="#2563eb"
             strokeWidth={3}
           />
