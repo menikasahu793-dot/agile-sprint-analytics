@@ -13,11 +13,15 @@ export function getSprintSummary(tasks) {
     (sum, task) => sum + (Number(task.storyPoints) || 0),
     0
   );
+const completionPercentage =
+  totalPoints === 0 ? 0 : (completedPoints / totalPoints) * 100;
 
   return {
     totalPoints,
     completedPoints,
     remainingPoints: totalPoints - completedPoints,
     velocity: completedPoints,
+completionPercentage
+
   };
 }
