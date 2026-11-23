@@ -16,6 +16,12 @@ export default function SprintAnalytics({ tasks = [] }) {
       </p>
 
       <VelocityCard summary={summary} />
+<div className="completion-box">
+  <h2>Sprint Completion</h2>
+  <h3>{summary.completionPercentage.toFixed(1)}%</h3>
+</div>
+
+
 
       <BurndownChart tasks={tasks} />
     </main>
